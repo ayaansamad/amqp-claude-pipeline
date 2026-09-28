@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
 
     public static final String EXCHANGE = "lab.exchange";
-    public static final String QUEUE = "lab.queue";
+    public static final String QUEUE = "task_queue";
     public static final String ROUTING_KEY = "lab.key";
 
     @Bean
