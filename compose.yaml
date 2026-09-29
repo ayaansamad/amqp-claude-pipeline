@@ -1,6 +1,14 @@
 services:
   rabbitmq:
     image: rabbitmq:4-management
+    # A fixed hostname keeps RabbitMQ's node name stable, and the volume keeps its data
+    # (durable queues + persistent messages) when the container is recreated.
+    hostname: rabbitmq
     ports:
       - "5672:5672"   # AMQP
       - "15672:15672" # Management UI (guest/guest)
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq_data:
